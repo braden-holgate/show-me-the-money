@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Login from './Login'
@@ -33,11 +33,15 @@ function App () {
 
       <div className=''>
         <Routes>
-          <Route path="/" element={auth.isAuthenticated ? <></> : <Login />} />
-          <Route path="/login" element={<Login />}/>
-          <Route path="/register" element={<Register />} />
-          <Route path="/meeting" element={<Meeting />} />
-          <Route path="/history" element={<History />} />
+          <Route path="/" element={auth.isAuthenticated ? <></> : <Navigate to='/login' />} />
+
+          {!auth.isAuthenticated && <Route path="/login" element={<Login />}/>}
+          {!auth.isAuthenticated && <Route path="/register" element={<Register />} />}
+
+          {auth.isAuthenticated && <Route path="/meeting" element={<Meeting />} />}
+          {auth.isAuthenticated && <Route path="/history" element={<History />} />}
+
+          <Route path="*" element={<Navigate to='/' />} />
         </Routes>
       </div>
 
