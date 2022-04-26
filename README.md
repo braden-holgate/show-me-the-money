@@ -1,6 +1,6 @@
 # $how Me The Money
 
-## Week 7 Large group project
+## Week 7 - Large group project
 
 Meetings are expensive, but sometimes we forget how expensive they are and feel the need to talk for too long about topics that are unimportant for the meeting purpose.
 
@@ -20,7 +20,7 @@ A Boilerplate is already set up for you (Thanks Harrison!) with everything you w
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js (SQL)](https://knexjs.org/)
 * [Bulma (CSS framework)](https://bulma.io/documentation/)
-* [JWT Auth (Local)](https://jwt.io/)
+* [Authenticare (local auth)](https://github.com/enspiral-dev-academy/authenticare/tree/main/docs)
 
 The Migration and seeds for the users table, and all login functionality is already set up!
 
@@ -34,15 +34,15 @@ As a user:
   * I want to register for the App under my name, and state my hourly wage
   * I want to start a new meeting, and add all the meeting members. (MVP: Add member names and wages manually)
   * I want to start my created meeting, and see a ($) cost tracker display the current meeting cost every second
-  * I want to be able to save a meeting's cost, attendess, duration and date/time when it is finished for later viewing
+  * I want to be able to save a meeting's cost, attendees, duration and date/time when it is finished for later viewing
   * I want to be able to view previous meetings in date/time order, and see more information about a past meeting.
   * I want to see a graph of meeting costs over time
 
 ### Stretch
   * I want to be able to select existing users of the App as meeting attendees, so that our wages don't have to be shown / inputted manually. If a meeting attendee doesn't have an account, I want to be able to manually add them to the App.
-  * I want to set a Maximum Cost an Maximum Duration for my Meeting, and see colourised progress bar displaying both a these
+  * I want to set a Maximum Cost an Maximum Duration for my Meeting, and see colourised progress bar displaying both of these
   * I want to be able to state my yearly salary rather than hourly rate as an option on register
-  * I want to be able to view all meetings that I am an attenee for, and I want information about my meetings to not be visible to all users of the app.
+  * I want to be able to view all meetings that I am an attendee for, and I want information about my meetings to not be visible to all users of the app.
   * I want to create a group of regular attendees for my meeting group to make setting up my meeting easier.
   * I want to be able to write notes or summaries for meetings upon saving them.
 
@@ -57,7 +57,6 @@ As a user:
   | Meeting | View to display current meeting time, cost and other information while the meeting is in progress |
   | History | Display a list of past meetings the user has attended with select preview information |
   | PastMeeting | Display a single meeting from the history list, displaying more information and a list of attendees for the past meeting |
-
 
 ## Reducers (Client Side)
 
@@ -74,13 +73,13 @@ As a user:
 
  | type | data | purpose |
  | --- | --- | --- |
- | RECEIVE_MEETINGS | meetings | retreive meetings from the db and store in redux |
+ | RECEIVE_MEETINGS | meetings | retrieve meetings from the db and store in redux |
  | ADD_MEETING | meeting | Add a single meeting to the history after it is created |
 
  ### users
  | type | data | purpose |
  | --- | --- | --- |
- | RECEIVE_USERS | users | retreive the users from the server |
+ | RECEIVE_USERS | users | retrieve the users from the server |
 
  ### currentMeeting
   | type | data | purpose |
@@ -137,13 +136,24 @@ As a user:
 
 ## Setup
 
+### JWT_secret
+1. Create a copy of the `.env.example` file and call it `.env`.
+
+```sh
+cp .env.example .env
+```
+
+2. Change the JWT_secret variable in the file (this will be the secret on your computer, so no need to match it to your team mates). This will be used to hash some user information and keep it safe from prying eyes.
+
+You may also notice git does not track this `.env` as it is named in the `.gitignore`.
+
+### Run your app
 Run the following commands in your terminal:
 
 ```sh
 npm install
 npm run knex migrate:latest
 npm run knex seed:run
-cp .env.example .env
 ```
 
 To run in development:
