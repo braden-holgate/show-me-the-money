@@ -13,18 +13,21 @@ The intended effect of this App is to make meeting attendees aware of how much t
 
 ## The Tech
 
-A Boilerplate is already set up for you (Thanks Harrison!) with everything you will need to get started. This boilerplate is set up to use:
+A boilerplate is already set up for you (Thanks Harrison!) with everything you will need to get started. This boilerplate is set up to use:
 
 * [React](https://reactjs.org/docs/getting-started.html)
 * [Redux](https://redux.js.org/)
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js (SQL)](https://knexjs.org/)
 * [Bulma (CSS framework)](https://bulma.io/documentation/)
+* [SCSS](https://sass-lang.com/documentation)
 * [Authenticare (local auth)](https://github.com/enspiral-dev-academy/authenticare/tree/main/docs)
 
-The Migration and seeds for the users table, and all login functionality is already set up!
+The migration and seeds for the users table, and all login functionality is already set up!
 
 The mobile responsiveness is also being handled by some neat JS and Bulma classes, be sure to incorporate that view in your project goals!
+
+SCSS files are included in `client/styles`. Make sure you define your own CSS in these files too, as the files in the public folder (`styles.css` & `styles.css.map`) are generated from these `.scss` files (just like the `bundle.js` & `bundle.js.map` are generated from your component files) and will be overwritten. 
 
 ## User Stories
 
