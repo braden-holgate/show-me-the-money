@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Login from './Login'
@@ -20,30 +20,28 @@ function App () {
   }, [])
 
   return (
-    <Router>
-      <div className="container has-text-centered">
+    <div className="container has-text-centered">
 
-        <div className="hero is-small is-primary">
-          <div className="hero-body has-text-centered">
-            <Link to='/' className="">
-              <h1 className="title is-1">$how Me The Money</h1>
-            </Link>
-            <Nav />
-          </div>
+      <div className="hero is-small is-primary">
+        <div className="hero-body has-text-centered">
+          <Link to='/' className="">
+            <h1 className="title is-1">$how Me The Money</h1>
+          </Link>
+          <Nav />
         </div>
-
-        <div className=''>
-          <Routes>
-            <Route path="/" element={auth.isAuthenticated ? <></> : <Login />} />
-            <Route path="/login" element={<Login />}/>
-            <Route path="/register" element={<Register />} />
-            <Route path="/meeting" element={<Meeting />} />
-            <Route path="/history" element={<History />} />
-          </Routes>
-        </div>
-
       </div>
-    </Router>
+
+      <div className=''>
+        <Routes>
+          <Route path="/" element={auth.isAuthenticated ? <></> : <Login />} />
+          <Route path="/login" element={<Login />}/>
+          <Route path="/register" element={<Register />} />
+          <Route path="/meeting" element={<Meeting />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
+
+    </div>
   )
 }
 
