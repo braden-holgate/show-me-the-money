@@ -40,8 +40,6 @@ function App () {
 
           {auth.isAuthenticated && <Route path="/meeting" element={<Meeting />} />}
           {auth.isAuthenticated && <Route path="/history" element={<History />} />}
-
-          <Route path="*" element={<Navigate to='/' />} />
         </Routes>
       </div>
 
